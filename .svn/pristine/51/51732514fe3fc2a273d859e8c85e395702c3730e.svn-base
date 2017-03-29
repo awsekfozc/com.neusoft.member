@@ -1,0 +1,8 @@
+#kafka.brokerIps=10.100.112.79:9990,10.100.112.95:9991,10.100.112.125:9992,10.100.112.155:9993
+#kafka.payment.topic=payment_checkout_kaifa
+#kafka.bussiness.card.topic=bussiness_card_checkout_kaifa
+
+
+#kafka.brokerIps=10.170.135.211,10.24.217.43,10.170.136.70
+#kafka.payment.topic=payment_checkout_kaifa
+#kafka.bussiness.card.topic=bussiness_card_checkout_kaifa

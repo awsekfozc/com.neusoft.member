@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.hibernate:hibernate-validator:5.2.7.Fnal">
+    <CLASSES>
+      <root url="jar://C:/zcwrok/repository/org/hibernate/hibernate-validator/5.2.7.Fnal/hibernate-validator-5.2.7.Fnal.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://C:/zcwrok/repository/org/hibernate/hibernate-validator/5.2.7.Fnal/hibernate-validator-5.2.7.Fnal-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://C:/zcwrok/repository/org/hibernate/hibernate-validator/5.2.7.Fnal/hibernate-validator-5.2.7.Fnal-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

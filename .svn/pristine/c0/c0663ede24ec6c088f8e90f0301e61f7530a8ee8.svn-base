@@ -1,0 +1,84 @@
+package server;
+
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.nio.SelectChannelConnector;
+import org.eclipse.jetty.webapp.WebAppContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class JettyServer {
+	
+	private Logger logger = LoggerFactory.getLogger(getClass());
+	
+	private Object lock = new Object();
+	private Server instance;
+
+	private int port = 8080;
+	private String configLocation;
+
+	public void start() {
+
+		synchronized (lock) {
+			if (null == instance) {
+				instance = initInstance();
+			}
+		}
+
+		try {
+			logger.warn("Prepare start JettyServer on port "+port+"..", port);
+			instance.start();
+			logger.warn("Start JettyServer on port "+port+" success!", port);
+		} catch (Exception e) {
+			logger.error("Start JettyServer on port "+port+" fail!", port);
+			throw new RuntimeException(e);
+		}
+	}
+
+	private Server initInstance() {
+		WebAppContext handler = new WebAppContext();
+		handler.setContextPath("/proxyip");
+		handler.setWar("src/main/webapp");
+		handler.setClassLoader(Thread.currentThread().getContextClassLoader());  //定位class文件位置的。
+		handler.setConfigurationDiscovered(true);  
+		handler.setParentLoaderPriority(true);  
+		SelectChannelConnector connector = new SelectChannelConnector();
+		connector.setName("Jetty-Selector");
+		connector.setPort(port);
+		
+		Server server = new Server();
+		server.addConnector(connector);
+		server.setHandler(handler);
+		return server;
+	}
+
+	public void stop() {
+		if (null != instance) {
+			try {
+				instance.stop();
+			} catch (Exception e) {
+				logger.error("stop JettyServer occurs error.", e);
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		new JettyServer().start();
+	}
+
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
+
+	public String getConfigLocation() {
+		return configLocation;
+	}
+
+	public void setConfigLocation(String configLocation) {
+		this.configLocation = configLocation;
+	}
+}
+

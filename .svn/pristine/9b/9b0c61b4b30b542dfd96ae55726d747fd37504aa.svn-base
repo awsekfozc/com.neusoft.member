@@ -1,0 +1,14 @@
+jdbc.username=neusoft
+jdbc.password=12345678
+jdbc.url0=jdbc:mysql://10.23.15.203:3306/flight-free?useUnicode=true&characterEncoding=UTF-8
+
+jdbc.usernamePublics=neusoft
+jdbc.passwordPublics=12345678
+jdbc.urlPublics=jdbc:mysql://10.23.15.203:3306/p_system?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+
+#jdbc.url0=jdbc:mysql://120.25.101.101:3306/flight-test?useUnicode=true&characterEncoding=UTF-8
+#jdbc.username=neusoft
+#jdbc.password=H1II8EkMygKAm3dl
+
+jdbc.dialect=com.neusoft.db.dialect.MySQLDialect
+jdbc.driverClassName=com.mysql.jdbc.Driver

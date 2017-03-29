@@ -1,0 +1,13 @@
+mongo.hosts=10.100.112.155:20000
+#mongo.port=20000
+mongo.connections-per-host=50
+mongo.threads-allowed-to-block-for-connection-multiplier=250
+mongo.connect-timeout=30000
+mongo.max-wait-time=45000
+mongo.auto-connect-retry=true
+mongo.socket-keep-alive=true
+mongo.socket-timeout=4500
+mongo.slave-ok=true
+mongo.write-number=1
+mongo.write-timeout=0
+mongo.write-fsync=true

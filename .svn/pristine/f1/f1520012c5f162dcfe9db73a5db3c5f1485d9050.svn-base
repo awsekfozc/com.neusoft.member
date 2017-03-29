@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+ 		http://www.springframework.org/schema/task   
+       http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+
+	<beans:bean id="mvcJsonConverter" class="com.neusoft.spring.MvcJsonConverter" />
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<beans:bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<beans:property name="objectMapper" ref="mvcJsonConverter">
+				</beans:property>
+			</beans:bean>
+			<beans:bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<beans:property name="supportedMediaTypes">
+					<beans:list>
+						<beans:value>text/html;charset=UTF-8</beans:value>
+						<beans:value>application/json;charset=UTF-8</beans:value>
+					</beans:list>
+				</beans:property>
+			</beans:bean>
+			<beans:bean
+				class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+			<beans:bean
+				class="org.springframework.http.converter.ResourceHttpMessageConverter" />
+			<beans:bean
+				class="org.springframework.http.converter.xml.SourceHttpMessageConverter" />
+			<beans:bean
+				class="org.springframework.http.converter.xml.XmlAwareFormHttpMessageConverter" />
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!-- 最重要:::如果放在spring-context.xml中，这里的aop设置将不会生效 -->
+	
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<context:component-scan base-package="com.neusoft">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
+	<!-- task任务扫描注解 -->
+	<task:annotation-driven />
+
+	<!-- 以下为SpringMVC配置 -->
+	<!-- 返回json数据，@response使用 -->
+	<!-- <mvc:annotation-driven> <mvc:message-converters register-defaults="true"> 
+		<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> 
+		<property name="supportedMediaTypes"> <list> <value>text/html;charset=UTF-8</value> 
+		<value>application/json;charset=UTF-8</value> </list> </property> </bean> 
+		</mvc:message-converters> </mvc:annotation-driven> -->
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<!-- <context:component-scan base-package="com.neusoft" use-default-filters="false"> 
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" 
+		/> </context:component-scan> -->
+
+	<!-- Handles HTTP GET requests for static resources by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<default-servlet-handler />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/pages/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<beans:bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
+
+</beans:beans>

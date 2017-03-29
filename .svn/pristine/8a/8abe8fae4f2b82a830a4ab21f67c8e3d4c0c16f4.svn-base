@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.neusoft</groupId>
+		<artifactId>system-dependency</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.neusoft.member</groupId>
+	<artifactId>member</artifactId>
+	<packaging>pom</packaging>
+	<modules>
+		<module>member-dao</module>
+		<module>member-service</module>
+		<module>member-web</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.neusoft</groupId>
+			<artifactId>system-dependency</artifactId>
+			<version>${system.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.neusoft</groupId>
+			<artifactId>system-common</artifactId>
+			<version>${system.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.neusoft</groupId>
+			<artifactId>system-cache</artifactId>
+			<version>${system.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.neusoft</groupId>
+			<artifactId>system-db</artifactId>
+			<version>${system.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.neusoft</groupId>
+			<artifactId>system-interface</artifactId>
+			<version>${system.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.neusoft</groupId>
+			<artifactId>system-log</artifactId>
+			<version>${system.version}</version>
+		</dependency>
+	</dependencies>
+
+
+</project>

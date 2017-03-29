@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+	<classPathEntry location="C:\zcwrok\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+	<context id="context1" defaultModelType="flat">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://10.23.15.203:3306/t_member?useUnicode=true&amp;characterEncoding=UTF-8"
+						userId="neusoft" password="12345678" />
+
+
+		<javaModelGenerator targetPackage="com.neusoft.member.persistence.auto.model"
+							targetProject="C:\ideawork\member\member-dao\src\main\java">
+			<property name="enableSubPackages" value="true"/>
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.neusoft.member.persistence.auto.mapping"
+						 targetProject="C:\ideawork\member\member-dao\src\main\java">
+			<property name="enableSubPackages" value="true"/>
+		</sqlMapGenerator>
+
+		<javaClientGenerator targetPackage="com.neusoft.member.persistence.auto.mapper"
+							 targetProject="C:\ideawork\member\member-dao\src\main\java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true"/>
+			<property name="rootInterface" value="com.neusoft.common.service.BaseSeviceMybatis"/>
+			<property name="rootService" value="com.neusoft.common.service.AbsBaseSeviceMybatis"/>
+		</javaClientGenerator>
+
+
+		<!-- 数据库表已经产生对应的映射文件 -->
+		<table tableName="m_main_info" domainObjectName="UserInfoEntity"
+			   enableCountByExample="false" enableUpdateByExample="false"
+			   enableDeleteByExample="false" enableSelectByExample="false"
+			   selectByExampleQueryId="false">
+		</table>
+
+	</context>
+</generatorConfiguration>

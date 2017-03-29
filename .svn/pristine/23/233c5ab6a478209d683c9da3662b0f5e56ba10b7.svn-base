@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>	
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry location="./bin/mysql-connector-java-5.1.34.jar" />
+	<!-- <classPathEntry location="./lib/sqljdbc4-4.0.jar" /> -->
+
+	<context id="prod">
+		<!-- RowBounds pagination -->
+		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.23.15.203:3306/flight-free?useUnicode=true&amp;characterEncoding=UTF-8"
+			userId="neusoft" password="12345678" />
+		<!-- entity跟example位置 -->
+		<!-- <javaModelGenerator targetPackage="com.neusoft.member.dao.pojostatic"
+			targetProject="src/main/java" /> -->
+		<!-- xml位置 -->
+		<!-- <sqlMapGenerator targetPackage="/mybatis/mapperstatic"
+			targetProject="src/main/resources" /> -->
+		<!-- 接口位置 -->
+		<!-- <javaClientGenerator targetPackage="com.neusoft.member.dao.mapperstatic"
+			targetProject="src/main/java" type="XMLMAPPER">
+
+			<property name="enableSubPackages" value="false" />
+			<property name="rootInterface" value="com.neusoft.db.BaseMapper" />
+		</javaClientGenerator> -->
+
+
+<!-- 		<table tableName="tb_userinfo" domainObjectName="UserInfoEntity">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		新增表
+		<table tableName="tb_AcheAccessToken" domainObjectName="AcheAccessTokenEntity">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+
+		<table tableName="tb_citycode" domainObjectName="CityCodeEntity">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+
+		<table tableName="tb_advertisement" domainObjectName="AdvertisementEntity">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+
+		<table tableName="tb_airlineCompany" domainObjectName="AirlineCompanyMessageEntity">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+
+		<table tableName="tb_discount" domainObjectName="DiscountEntityEntity">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+
+		<table tableName="tb_weather_areaid" domainObjectName="WeatherAreaIDEntity">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+		<table tableName="tb_airpoet_raiders" domainObjectName="AirpoetRaiderEntity">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+
+		<table tableName="tb_questionBank" domainObjectName="QuestionBankEntity">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+
+		<table tableName="tb_recordFollow" domainObjectName="RecordFollowEntity">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+
+		<table tableName="tb_recordPrice" domainObjectName="RecordPriceEntity">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table> -->
+
+	</context>
+</generatorConfiguration>

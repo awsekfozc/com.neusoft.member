@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+						http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+						http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+						http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+	
+	<!-- Redis配置  -->
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxTotal" value="5000" />
+		<property name="maxIdle" value="2000" />
+		<property name="maxWaitMillis" value="4000" />
+		<property name="testOnBorrow" value="true" />
+	</bean>
+	
+	<!-- <bean id="redispool" class="redis.clients.jedis.JedisPool">
+		<constructor-arg ref="jedisPoolConfig" />
+		<constructor-arg value="${REDIS_HOST}" />
+		<constructor-arg type="int"  value="${REDIS_PORT}" />
+	</bean> -->
+	
+	<bean id="sessionJedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value="${REDIS1_HOST}" />
+		<property name="port" value="${REDIS1_PORT}" />
+		<property name="password" value="${REDIS1_PASSWORD}"/>
+		<property name="poolConfig" ref="jedisPoolConfig"/>
+	</bean>
+	
+<!-- 	<bean id="sessionJedisConnectionFactory2" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value="${REDIS2_HOST}" />
+		<property name="port" value="${REDIS2_PORT}" />
+		<property name="poolConfig" ref="jedisPoolConfig"/>
+	</bean>
+	
+	<bean id="sessionJedisConnectionFactory3" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value="${REDIS3_HOST}" />
+		<property name="port" value="${REDIS3_PORT}" />
+		<property name="poolConfig" ref="jedisPoolConfig"/>
+	</bean> -->
+    
+	<bean id="sessionRedisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="sessionJedisConnectionFactory" />
+	</bean>
+	
+	<bean class="com.neusoft.cache.RedisHelper">
+		<property name="redisTemplate" ref="sessionRedisTemplate"/>
+	</bean>
+	
+</beans>

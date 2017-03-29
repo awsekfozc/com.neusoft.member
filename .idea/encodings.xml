@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/../boot.center/src/main/java/main/Bootstrap.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../boot.center/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../boot.center/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/member-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/member-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/member-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/server-commn" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../system-vo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../system.boot" charset="UTF-8" />
+  </component>
+</project>

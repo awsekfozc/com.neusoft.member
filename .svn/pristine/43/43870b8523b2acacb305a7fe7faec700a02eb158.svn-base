@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://cxf.apache.org/core"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://code.alibabatech.com/schema/dubbo 
+     http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+	default-lazy-init="false">
+	<!-- -->
+	<!-- <bean id="bookService" class="com.rpc.BookingOrderService" />
+	<dubbo:application name="${application.name}" />
+	<dubbo:registry address="${registry.address}" register="${registry.register}" />
+	<dubbo:protocol name="${protocol.name}" port="${protocol.port}" />
+	<dubbo:consumer timeout="${consumer.timeout}" />
+	<dubbo:provider timeout="${provider.timeout}" threads="${provider.threads}" />
+	<dubbo:service ref="bookService" group="${provider.group}"
+		interface="com.plateno.booking.controller.rpc.IBookingOrderService"
+		retries="1" /> -->
+	
+</beans>

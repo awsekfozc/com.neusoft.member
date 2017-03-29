@@ -1,0 +1,27 @@
+# dubbo config
+application.name=dataprovider_v0.1
+#
+#registry.address=zookeeper://10.23.15.200:2181?backup=10.23.15.202:2181,10.23.15.204:2181
+#test
+registry.address=zookeeper://10.170.135.211:2181?backup=10.24.217.43:2181,10.170.136.70:2181
+ 
+
+consumer.timeout=99000
+provider.timeout=99000
+provider.threads=1000
+consumer.retries=4
+
+#protocol.name=dubbo
+#protocol.port=20880
+
+
+provider.group=develop_v0.1
+veryzhun.group=veryzhun_v0.1
+veryzhun.group2=veryzhunList_v0.1
+airfreFlight.group=airfreFlight_v0.1
+xiecheng.group=xiecheng_v0.1
+qunar.group=qunar_v0.1
+registry.register=true
+
+freight.group = singleFreight_v0.1
+freight.group2 = doubleFreight_v0.1
